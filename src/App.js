@@ -1,23 +1,34 @@
 import logo from './logo.svg';
 import './App.css';
+import {Mobile2,Mobile1} from './components/mobile1'
+import {v4 as uuid} from 'uuid'
 
 function App() {
+
+  const OS=["Android","Blackberry","iphone","Windows phone"]
+ const MM=["Samsung","HTC","Micromax","Apple"]
   return (
+    
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>Mobile Operating System</h1>
+      {OS.map((elem)=>{
+        return (
+          <div>
+              <Mobile1 id={uuid()}  ip={elem}/>
+          </div>
+        )
+      })}
+
+<h1>Mobile Manifacturers</h1>
+      {MM.map((elem)=>{
+        return (
+          <div>
+              <Mobile2 id={uuid()} ip1={elem}/>
+          </div>
+        )
+      })}
+      
+    
     </div>
   );
 }
